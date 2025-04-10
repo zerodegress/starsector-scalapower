@@ -1,0 +1,4 @@
+root = true
+
+[*.{sbt, scala, json}]
+indent_size = 2

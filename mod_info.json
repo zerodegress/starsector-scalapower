@@ -1,0 +1,11 @@
+{
+    "id": "scalapower",
+    "name": "Scala Power",
+    "author": "ZeroDegress",
+    "utility": "true",
+    "version": "0.1.0",
+    "description": "TODO",
+    "gameVersion": "0.98a-RC7",
+    "jars": [],
+    "modPlugin": "com.zerodegress.starsector.scalapower.ScalaPowerPlugin"
+}
