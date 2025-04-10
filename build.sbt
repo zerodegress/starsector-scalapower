@@ -1,5 +1,4 @@
 import scala.language.implicitConversions
-import scala.collection.mutable.ArrayBuffer
 
 val scala3Version = "3.6.4"
 
@@ -10,7 +9,7 @@ lazy val generateModJarsMapping =
 lazy val generateModInfo = taskKey[File]("Genrate mod_info.json.")
 lazy val packageModZip = taskKey[File]("Package as a starsector mod(zip).")
 
-lazy val root = project
+lazy val scalaPower = project
   .in(file("."))
   .enablePlugins(UniversalPlugin)
   .settings(
