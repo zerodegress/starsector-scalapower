@@ -1,6 +1,7 @@
 import scala.language.implicitConversions
 
-val scala3Version = "3.6.4"
+ThisBuild / scalaVersion := "3.6.4"
+ThisBuild / scalacOptions += "-release:17"
 
 lazy val generateScalaRuntimeJarsMapping =
   taskKey[Seq[(File, String)]]("Generate scala runtime jars mapping.")
@@ -15,12 +16,13 @@ lazy val scalaPower = project
   .settings(
     name := "starsector-scalapower",
     version := "0.1.0",
-    scalaVersion := scala3Version,
     maintainer := "ZeroDegress@zerodegress.com",
-    scalacOptions += "-release:17",
     libraryDependencies += "org.scalameta" %% "munit" % "1.0.0" % Test,
     libraryDependencies += "log4j" % "log4j" % "1.2.9" % Provided,
     libraryDependencies += "com.thoughtworks.xstream" % "xstream" % "1.4.10" % Provided,
+    Compile / unmanagedJars += file(
+      sys.env("STARSECTOR_GAME_PATH")
+    ) / "starfarer.api.jar",
     generateScalaRuntimeJarsMapping := scalaInstance.value.libraryJars
       .filter(f => f.name.contains("scala3"))
       .map(f => f -> s"lib/${f.getName}")
